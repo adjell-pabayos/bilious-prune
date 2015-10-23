@@ -37,7 +37,7 @@ public class Main {
 
         Statement stmt = connection.createStatement();
         stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (name text, tick timestamp)");
-        stmt.executeUpdate("INSERT INTO ticks VALUES ('HOLAAAAAA', now())");
+        stmt.executeUpdate("INSERT INTO name, ticks VALUES ('HOLAAAAAA', now())");
         ResultSet rs = stmt.executeQuery("SELECT name, tick FROM ticks");
 
         ArrayList<String> output = new ArrayList<String>();
