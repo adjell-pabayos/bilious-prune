@@ -36,13 +36,13 @@ public class Main {
         connection = DatabaseUrl.extract().getConnection();
 
         Statement stmt = connection.createStatement();
-        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (name text, tick timestamp)");
-        stmt.executeUpdate("INSERT INTO ticks VALUES ('HOLAAAAAA', now())");
-        ResultSet rs = stmt.executeQuery("SELECT name, tick FROM ticks");
+        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (num int, tick timestamp)");
+        stmt.executeUpdate("INSERT INTO ticks VALUES (52334, now())");
+        ResultSet rs = stmt.executeQuery("SELECT num, tick FROM ticks");
 
         ArrayList<String> output = new ArrayList<String>();
         while (rs.next()) {
-        	output.add( "Read from DB: " + rs.getTimestamp("name") + " " + rs.getTimestamp("tick"));
+        	output.add( "Read from DB: " + rs.getInt("num") + " " + rs.getTimestamp("tick"));
         }
 
         attributes.put("results", output);
